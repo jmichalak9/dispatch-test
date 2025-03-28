@@ -19,15 +19,18 @@ jobs:
 
 
       - name: D
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         if: github.event_name == 'repository_dispatch'
-       # with:
+        with:
+          persist-credentials: false
           #ref: ${{ github.event.client_payload.pull_request.head.sha }}
 
       - name: PR
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         if: github.event_name == 'pull_request'
-
+        with:
+          persist-credentials: false
+          
       - name: show
         run: |
           cat test.txt
