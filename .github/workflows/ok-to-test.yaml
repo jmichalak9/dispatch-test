@@ -23,7 +23,7 @@ jobs:
         if: github.event_name == 'repository_dispatch'
         with:
           persist-credentials: false
-          #ref: ${{ github.event.client_payload.pull_request.head.sha }}
+          ref: ${{ github.event.client_payload.pull_request.head.sha }}
 
       - name: PR
         uses: actions/checkout@v4
